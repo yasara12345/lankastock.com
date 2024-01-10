@@ -1,0 +1,847 @@
+<!-------------------------------------------->
+<!-- CODED BY SANTHUSHI YASARA SAMARATHUNGA -->
+<!-------------------------------------------->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Lanka Stock Catalog</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        h3 i {
+            margin-right: 20px;
+            /* Adjust the value as needed */
+        }
+
+        .w3-sidebar a {
+            font-family: "Roboto", sans-serif
+        }
+
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        .w3-wide {
+            font-family: "Montserrat", sans-serif;
+        }
+
+        .w3-bar .w3-button {
+            padding: 16px;
+        }
+
+        .button {
+            background-color: #d13f3f;
+            border: none;
+            color: rgb(255, 255, 255);
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 16px;
+        }
+
+        /* The Modal (background) */
+
+
+        .modal {
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            /* Stay in place */
+            z-index: 1;
+            /* Sit on top */
+            left: 18%;
+            top: 0;
+            width: 1000px;
+            /* Full width */
+            height: 800px;
+            /* Full height */
+            overflow: auto;
+            /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0);
+            /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.4);
+            /* Black w/ opacity */
+        }
+
+
+        /* Modal Content/Box */
+        .modal-content {
+            background-color: #fefefe;
+            margin: 10% auto;
+            /* 15% from the top and centered */
+            padding: 30px;
+            border: 1px solid #888;
+            width: 80%;
+            /* Could be more or less, depending on screen size */
+        }
+
+        /* The Close Button */
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body class="w3-content" style="max-width:1200px">
+
+    <!-- Navbar (sit on top) -->
+    <div class="w3-top">
+        <div class="w3-bar w3-white w3-card" id="myNavbar">
+            <div class="w3-left" style="margin-left:250px">
+                <a href="index.html" class="w3-bar-item w3-button w3-wide w3-hide-small"><i class="fa fa-home"></i> LANKA STOCK
+                    (PVT) LTD </a>
+            </div>
+            <!-- Right-sided navbar links -->
+            <div class="w3-right w3-hide-small">
+                <a href="index.html" class="w3-bar-item w3-button"><i class="fa fa-reorder"></i> ABOUT</a>
+                <a href="#footer" class="w3-bar-item w3-button"><i class="fa fa-phone"></i> CONTACT</a>
+            </div>
+
+            <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+            <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium"
+                onclick="w3_open()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- Sidebar/menu -->
+    <nav class="w3-sidebar w3-bar-block w3-black w3-collapse w3-top" style="z-index:3;width:250px" id="mySidebar">
+        <div class="w3-container w3-display-container w3-padding-16">
+            <i onclick="w3_close()" class="fa fa-remove w3-hide-large w3-button w3-display-topright"></i>
+            <h3 class="w3-wide"><b>CATALOG</b></h3>
+        </div>
+        <div class="w3-padding-64 w3-large w3-text-white">
+            <div class="w3-dropdown-click">
+                <button onclick="showSampleDropdown()" class="w3-bar-item w3-button">Design Samples <i
+                        class="fa fa-caret-right"></i></button>
+                <div id="sampleDropdown" class="w3-dropdown-content w3-bar-block">
+                    <a href="#" class="w3-bar-item w3-button" onclick="showCategory('school-bags')">SCHOOL BAGS</a>
+                    <a href="#" class="w3-bar-item w3-button" onclick="showCategory('laptop-bags')">OFFICE/LAPTOP
+                        BAGS</a>
+                    <a href="#" class="w3-bar-item w3-button" onclick="showCategory('travelling-bags')">TRAVELLING
+                        BAGS</a>
+                    <a href="#" class="w3-bar-item w3-button" onclick="showCategory('pouches-bags')">POUCHES</a>
+                    <a href="#" class="w3-bar-item w3-button" onclick="showCategory('tote-bags')">TOTE BAGS</a>
+                    <a href="#" class="w3-bar-item w3-button" onclick="showCategory('caps')">CAPS</a>
+                    <a href="#" class="w3-bar-item w3-button" onclick="showCategory('other')">OTHER</a>
+                </div>
+            </div>
+            <a href="#" class="w3-bar-item w3-button" onclick="showCategory('designhub')">Design Hub</a>
+            <a href="#" class="w3-bar-item w3-button" onclick="showCategory('stock')">Available Stock</a>
+            <a href="index.html" class="w3-bar-item w3-button w3-hide-large">About</a>
+            <a href="#footer" class="w3-bar-item w3-button w3-hide-large">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Overlay effect when opening sidebar on small screens -->
+    <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu"
+        id="myOverlay"></div>
+
+    <!-- !PAGE CONTENT! -->
+    <div class="w3-main" style="margin-left:250px">
+
+        <!-- Push down content on small screens -->
+        <div class="w3-hide-large" style="margin-top:83px"></div>
+
+        <div class="w3-container w3-text-grey w3-hide-small" id="jeans">
+            <p>Items</p>
+        </div>
+
+        <!-- Product grid -->
+        <!--School Bags -->
+        <div id="school-bags" class="category-content">
+            <div>
+                <h2 class="w3-container w3-red w3-xlarge w3-left" id="school-bag">SCHOOL BAGS</h2>
+            </div>
+            <!-- Product grid for School bags -->
+            <div class="w3-row">
+                <div class="w3-col l3 s6">
+                    <div class="w3-container">
+                        <img src="webimages\bags\b1.jpg" style="width:100%" onclick="onClick(this)"
+                            class="w3-hover-opacity" alt="1">
+                        <p>SCHOOL BAG 1<br></p>
+                    </div>
+                </div>
+
+                <div class="w3-col l3 s6">
+                    <div class="w3-container">
+                        <img src="webimages\bags\b2.jpg" style="width:100%" onclick="onClick(this)"
+                            class="w3-hover-opacity" alt="2">
+                        <p>SCHOOL BAG 2<br></p>
+                    </div>
+                </div>
+
+                <div class="w3-col l3 s6">
+                    <div class="w3-container">
+                        <img src="webimages\bags\b3.jpg" style="width:100%" onclick="onClick(this)"
+                            class="w3-hover-opacity" alt="3">
+                        <p>SCHOOL BAG 3<br></p>
+                    </div>
+                </div>
+
+                <div class="w3-col l3 s6">
+                    <div class="w3-container">
+                        <img src="webimages\bags\b4.jpg" style="width:100%" onclick="onClick(this)"
+                            class="w3-hover-opacity" alt="4">
+                        <p>SCHOOL BAG 4<br></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w3-row">
+                <div class="w3-col l3 s6">
+                    <div class="w3-container">
+                        <img src="webimages\bags\b4b.jpg" style="width:100%" onclick="onClick(this)"
+                            class="w3-hover-opacity" alt="SCHOOL BAG BACK">
+                        <p>SCHOOL BAG BACK<br></p>
+                    </div>
+                </div>
+
+                <div class="w3-col l3 s6">
+                    <div class="w3-container">
+                        <img src="webimages\bags\b5.jpg" style="width:100%" onclick="onClick(this)"
+                            class="w3-hover-opacity" alt="5">
+                        <p>SCHOOL BAG 5<br></p>
+                    </div>
+                </div>
+
+                <div class="w3-col l3 s6">
+                    <div class="w3-container">
+                        <img src="webimages\bags\b6.jpg" style="width:100%" onclick="onClick(this)"
+                            class="w3-hover-opacity" alt="6">
+                        <p>SCHOOL BAG 6<br></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Laptop Bags -->
+        <div id="laptop-bags" class="category-content">
+            <div>
+                <h2 class="w3-container w3-red w3-xlarge w3-left">OFFICE/LAPTOP BAGS</h2>
+            </div>
+            <!-- Product grid for OFFICE/LAPTOP bags -->
+            <div class="w3-row">
+                <div class="w3-col l3 s6">
+                    <div class="w3-container">
+                        <img src="webimages\office_laptop_bags\o1.jpg" style="width:100%" onclick="onClick(this)"
+                            class="w3-hover-opacity" alt="1">
+                        <p>OFFICE/LAPTOP BAG 1<br></p>
+                    </div>
+                </div>
+
+                <div class="w3-col l3 s6">
+                    <div class="w3-container">
+                        <img src="webimages\office_laptop_bags\o2.jpg" style="width:100%" onclick="onClick(this)"
+                            class="w3-hover-opacity" alt="2">
+                        <p>OFFICE/LAPTOP BAG 2<br></p>
+                    </div>
+                </div>
+
+                <div class="w3-col l3 s6">
+                    <div class="w3-container">
+                        <img src="webimages\office_laptop_bags\o3.jpg" style="width:100%" onclick="onClick(this)"
+                            class="w3-hover-opacity" alt="3">
+                        <p>OFFICE/LAPTOP BAG 3<br></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Travelling Bags -->
+        <div id="travelling-bags" class="category-content">
+            <div>
+                <h2 class="w3-container w3-red w3-xlarge w3-left">TRAVELLING BAGS</h2>
+            </div>
+            <!-- Product grid for Travelling bags -->
+            <div class="w3-row">
+                <div class="w3-col l3 s6">
+                    <div class="w3-container">
+                        <img src="webimages\travelling_bags\t2.jpg" style="width:100%" onclick="onClick(this)"
+                            class="w3-hover-opacity" alt="1">
+                        <p>TRAVELLING BAG 1<br></p>
+                    </div>
+                </div>
+
+                <div class="w3-col l3 s6">
+                    <div class="w3-container">
+                        <img src="webimages\travelling_bags\t6.jpg" style="width:100%" onclick="onClick(this)"
+                            class="w3-hover-opacity" alt="2">
+                        <p>TRAVELLING BAG 2<br></p>
+                    </div>
+                </div>
+
+                <div class="w3-col l3 s6">
+                    <div class="w3-container">
+                        <img src="webimages\travelling_bags\t4.jpg" style="width:100%" onclick="onClick(this)"
+                            class="w3-hover-opacity" alt="3">
+                        <p>TRAVELLING BAG 3<br></p>
+                    </div>
+                </div>
+
+                <div class="w3-col l3 s6">
+                    <div class="w3-container">
+                        <img src="webimages\travelling_bags\t5.jpg" style="width:100%" onclick="onClick(this)"
+                            class="w3-hover-opacity" alt="4">
+                        <p>TRAVELLING BAG 4<br></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w3-row">
+                <div class="w3-col l3 s6">
+                    <div class="w3-container">
+                        <img src="webimages\travelling_bags\t3.jpg" style="width:100%" onclick="onClick(this)"
+                            class="w3-hover-opacity" alt="5">
+                        <p>TRAVELLING BAG 5<br></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Pouches -->
+        <div id="pouches-bags" class="category-content">
+            <div>
+                <h2 class="w3-container w3-red w3-xlarge w3-left">POUCHES</h2>
+            </div>
+            <!-- Product grid for pouch bags -->
+            <div class="w3-row">
+                <div class="w3-col l3 s6">
+                    <div class="w3-container">
+                        <img src="webimages\pouches\p1.jpg" style="width:100%" onclick="onClick(this)"
+                            class="w3-hover-opacity" alt="1">
+                        <p>POUCH 1<br></p>
+                    </div>
+                    <div class="w3-container">
+                        <img src="webimages\pouches\p5.jpg" style="width:100%" onclick="onClick(this)"
+                            class="w3-hover-opacity" alt="5">
+                        <p>POUCH 5<br></p>
+                    </div>
+                    <div class="w3-container">
+                        <img src="webimages\pouches\p9.jpg" style="width:100%" onclick="onClick(this)"
+                            class="w3-hover-opacity" alt="9">
+                        <p>POUCH 9<br></p>
+                    </div>
+                    <div class="w3-container">
+                        <img src="webimages\pouches\p13.jpg" style="width:100%" onclick="onClick(this)"
+                            class="w3-hover-opacity" alt="13">
+                        <p>POUCH 13<br></p>
+                    </div>
+                </div>
+
+                <div class="w3-col l3 s6">
+                    <div class="w3-container">
+                        <img src="webimages\pouches\p2.jpg" style="width:100%" onclick="onClick(this)"
+                            class="w3-hover-opacity" alt="2">
+                        <p>POUCH 2<br></p>
+                    </div>
+                    <div class="w3-container">
+                        <img src="webimages\pouches\p6.jpg" style="width:100%" onclick="onClick(this)"
+                            class="w3-hover-opacity" alt="6">
+                        <p>POUCH 6<br></p>
+                    </div>
+                    <div class="w3-container">
+                        <img src="webimages\pouches\p10.jpg" style="width:100%" onclick="onClick(this)"
+                            class="w3-hover-opacity" alt="10">
+                        <p>POUCH 10<br></p>
+                    </div>
+                    <div class="w3-container">
+                        <div class="w3-display-container">
+                            <img src="webimages\pouches\p14.jpg" style="width:100%" onclick="onClick(this)"
+                                class="w3-hover-opacity" alt="14">
+                            <span class="w3-tag w3-display-topleft">Old Sample</span>
+                            <div class="w3-display-middle w3-display-hover">
+                                <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
+                            </div>
+                        </div>
+                        <p>POUCH 14<br><b>$20.50</b></p>
+                    </div>
+
+                </div>
+
+                <div class="w3-col l3 s6">
+                    <div class="w3-container">
+                        <img src="webimages\pouches\p3.jpg" style="width:100%" onclick="onClick(this)"
+                            class="w3-hover-opacity" alt="3">
+                        <p>POUCH 3<br></p>
+                    </div>
+                    <div class="w3-container">
+                        <img src="webimages\pouches\p7.jpg" style="width:100%" onclick="onClick(this)"
+                            class="w3-hover-opacity" alt="7">
+                        <p>POUCH 7<br></p>
+                    </div>
+                    <div class="w3-container">
+                        <img src="webimages\pouches\p11.jpg" style="width:100%" onclick="onClick(this)"
+                            class="w3-hover-opacity" alt="11">
+                        <p>POUCH 11<br></p>
+                    </div>
+
+                </div>
+
+                <div class="w3-col l3 s6">
+                    <div class="w3-container">
+                        <img src="webimages\pouches\p4.jpg" style="width:100%" onclick="onClick(this)"
+                            class="w3-hover-opacity" alt="4">
+                        <p>POUCH 4<br></p>
+                    </div>
+                    <div class="w3-container">
+                        <img src="webimages\pouches\p8.jpg" style="width:100%" onclick="onClick(this)"
+                            class="w3-hover-opacity" alt="8">
+                        <p>POUCH 8<br></p>
+                    </div>
+                    <div class="w3-container">
+                        <img src="webimages\pouches\p12.jpg" style="width:100%" onclick="onClick(this)"
+                            class="w3-hover-opacity" alt="12">
+                        <p>POUCH 12<br></p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!--Tote Bags -->
+        <div id="tote-bags" class="category-content">
+            <div>
+                <h2 class="w3-container w3-red w3-xlarge w3-left">TOTE BAGS</h2>
+            </div>
+            <!-- Product grid for tote bags -->
+            <div class="w3-row">
+                <div class="w3-col l3 s6">
+                    <div class="w3-container">
+                        <img src="webimages\totebags\t4.jpg" style="width:100%" onclick="onClick(this)"
+                            class="w3-hover-opacity" alt="1">
+                        <p>TOTE BAG 1<br></p>
+                    </div>
+                </div>
+
+                <div class="w3-col l3 s6">
+                    <div class="w3-container">
+                        <img src="webimages\totebags\t5.jpg" style="width:100%" onclick="onClick(this)"
+                            class="w3-hover-opacity" alt="2">
+                        <p>TOTE BAG 1<br></p>
+                    </div>
+                </div>
+
+                <div class="w3-col l3 s6">
+                    <div class="w3-container">
+                        <img src="webimages\totebags\t6.jpg" style="width:100%" onclick="onClick(this)"
+                            class="w3-hover-opacity" alt="3">
+                        <p>TOTE BAG 1<br></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Caps -->
+        <div id="caps" class="category-content">
+            <div>
+                <h2 class="w3-container w3-red w3-xlarge w3-left">CAPS</h2>
+            </div>
+            <!-- Product grid for caps -->
+            <div class="w3-row">
+                <div class="w3-col l3 s6">
+                    <div class="w3-container">
+                        <img src="webimages\caps\c1.jpg" style="width:100%" onclick="onClick(this)"
+                            class="w3-hover-opacity" alt="1">
+                        <p>CAP 1<br></p>
+                    </div>
+                    <div class="w3-container">
+                        <img src="webimages\caps\c5.jpg" style="width:100%" onclick="onClick(this)"
+                            class="w3-hover-opacity" alt="5">
+                        <p>CAP 5<br></p>
+                    </div>
+                    <div class="w3-container">
+                        <img src="webimages\caps\c9.jpg" style="width:100%" onclick="onClick(this)"
+                            class="w3-hover-opacity" alt="9">
+                        <p>CAP 9<br></p>
+                    </div>
+                </div>
+
+                <div class="w3-col l3 s6">
+                    <div class="w3-container">
+                        <img src="webimages\caps\c2.jpg" style="width:100%" onclick="onClick(this)"
+                            class="w3-hover-opacity" alt="2">
+                        <p>CAP 2<br></p>
+                    </div>
+                    <div class="w3-container">
+                        <img src="webimages\caps\c6.jpg" style="width:100%" onclick="onClick(this)"
+                            class="w3-hover-opacity" alt="6">
+                        <p>CAP 6<br></p>
+                    </div>
+                    <div class="w3-container">
+                        <img src="webimages\caps\c10.jpg" style="width:100%" onclick="onClick(this)"
+                            class="w3-hover-opacity" alt="10">
+                        <p>CAP 10<br></p>
+                    </div>
+                </div>
+
+                <div class="w3-col l3 s6">
+                    <div class="w3-container">
+                        <img src="webimages\caps\c3.jpg" style="width:100%" onclick="onClick(this)"
+                            class="w3-hover-opacity" alt="3">
+                        <p>CAP 3<br></p>
+                    </div>
+                    <div class="w3-container">
+                        <img src="webimages\caps\c7.jpg" style="width:100%" onclick="onClick(this)"
+                            class="w3-hover-opacity" alt="7">
+                        <p>CAP 7<br></p>
+                    </div>
+                    <div class="w3-container">
+                        <img src="webimages\caps\c11.jpg" style="width:100%" onclick="onClick(this)"
+                            class="w3-hover-opacity" alt="11">
+                        <p>CAP 11<br></p>
+                    </div>
+                </div>
+
+                <div class="w3-col l3 s6">
+                    <div class="w3-container">
+                        <img src="webimages\caps\c4.jpg" style="width:100%" onclick="onClick(this)"
+                            class="w3-hover-opacity" alt="4">
+                        <p>CAP 4<br></p>
+                    </div>
+                    <div class="w3-container">
+                        <img src="webimages\caps\c8.jpg" style="width:100%" onclick="onClick(this)"
+                            class="w3-hover-opacity" alt="8">
+                        <p>CAP 8<br></p>
+                    </div>
+                    <div class="w3-container">
+                        <img src="webimages\caps\c12.jpg" style="width:100%" onclick="onClick(this)"
+                            class="w3-hover-opacity" alt="12">
+                        <p>CAP 12<br></p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Modal for full-size images on click -->
+        <div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
+            <span class="w3-button w3-xxlarge w3-transparent w3-padding-large w3-display-topright"
+                title="Close Modal Image">×</span>
+            <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-30">
+                <!-- Set the width and height for your image -->
+                <img id="img01" class="w3-image" style="max-width: 50%; max-height: 50%;">
+                <p id="caption" class="w3-opacity w3-large"></p>
+            </div>
+        </div>
+
+        <!-- Your Design Hub Section -->
+        <div id="designhub" class="category-content">
+            <h3 class="w3-center"><b>Our Design Hub</b></h3>
+            <div class="w3-display-container">
+                <img class="w3-hide-large" src="webimages\background_images\4.jpg" alt="beans" style="width:100% ; height: 800px;">
+                <img class="w3-hide-small" src="webimages\background_images\4.jpg" alt="beans" style="width:100% ; height: 600px;">
+
+                <div class="w3-display-left w3-text-black">
+                    <div>
+                        <h3 class="w3-container w3-left w3-white"><b>Your Design Hub</b></h3>
+                    </div>
+
+                    <div class="w3-row-padding">
+                        <!-- First Card -->
+                        <div class="w3-card w3-hover-shadow w3-light-grey w3-third" style="width: 100%; height: 100%; text-align:left;">
+                            <div class="w3-container">
+                                <i class="w3-margin-bottom w3-jumbo"></i>
+                                <p class="w3-large"><b>Explore Exclusive Designs</b></p>
+                                <p>Contact us to schedule a visit to our factory, where you can discover a wealth of additional
+                                    designs that aren't featured on our website. Seeing our production process firsthand allows
+                                    you to choose from an extensive catalog of unique and exclusive options.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+
+                    <div class="w3-row-padding">
+                        <!-- Second Card -->
+                        <div class="w3-card w3-hover-shadow w3-red w3-third" style="width: 100%; height: 100%; text-align:left;">
+                            <div class="w3-container">
+                                <i class="w3-margin-bottom w3-jumbo"></i>
+                                <p class="w3-large"><b>Custom Designs Tailored for You</b></p>
+                                <p>In addition to our showcased designs, we specialize in bringing your ideas to life.
+                                    Collaborate with us, and our team will work closely with you to create bespoke bags and caps
+                                    that perfectly match your vision.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+
+                    <div class="w3-row-padding">
+                        <!-- Third Card -->
+                        <div class="w3-card w3-hover-shadow w3-black w3-third" style="width: 100%; height: 100%; text-align:left;">
+                            <div class="w3-container">
+                                <i class="w3-margin-bottom w3-jumbo"></i>
+                                <p class="w3-large"><b>How to Connect</b></p>
+                                <p>Simply give us a call or drop us an email to arrange a visit to our factory or discuss your
+                                    custom design requirements. We look forward to turning your concepts into tangible,
+                                    high-quality products.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Stock Purchase Section -->
+        <div id="stock" class="category-content">
+            <div>
+                <h2 class="w3-container w3-red w3-xlarge w3-left">AVAILABLE STOCK</h2><br><br>
+                <h4 class="w3-container w3-left">Discover ready-to-purchase items from our current stock. These products
+                    are ready for
+                    immediate delivery. To make a purchase, visit our factory or contact us to place an order.</h4>
+                <div class="w3-container">
+                    <!-- Trigger/Open The Modal -->
+                    <button class="button w3-red w3-padding-large w3-large w3-margin-top w3-hover-opacity"
+                        id="myBtn">How to Purchase?</button>
+                </div>
+                <br>
+            </div>
+
+            <!-- Product grid for pouch bags -->
+            <div class="w3-row">
+                <div class="w3-col l3 s6">
+                    <div class="w3-container">
+                        <img src="webimages\pouches\p1.jpg" style="width:100%" onclick="onClick(this)"
+                            class="w3-hover-opacity" alt="1">
+                        <p>POUCH 1<br></p>
+                    </div>
+                    <div class="w3-container">
+                        <img src="webimages\pouches\p5.jpg" style="width:100%" onclick="onClick(this)"
+                            class="w3-hover-opacity" alt="5">
+                        <p>POUCH 5<br></p>
+                    </div>
+                    <div class="w3-container">
+                        <img src="webimages\pouches\p9.jpg" style="width:100%" onclick="onClick(this)"
+                            class="w3-hover-opacity" alt="9">
+                        <p>POUCH 9<br></p>
+                    </div>
+                    <div class="w3-container">
+                        <img src="webimages\pouches\p13.jpg" style="width:100%" onclick="onClick(this)"
+                            class="w3-hover-opacity" alt="13">
+                        <p>POUCH 13<br></p>
+                    </div>
+                </div>
+
+                <div class="w3-col l3 s6">
+                    <div class="w3-container">
+                        <img src="webimages\pouches\p2.jpg" style="width:100%" onclick="onClick(this)"
+                            class="w3-hover-opacity" alt="2">
+                        <p>POUCH 2<br></p>
+                    </div>
+                    <div class="w3-container">
+                        <img src="webimages\pouches\p6.jpg" style="width:100%" onclick="onClick(this)"
+                            class="w3-hover-opacity" alt="6">
+                        <p>POUCH 6<br></p>
+                    </div>
+                    <div class="w3-container">
+                        <img src="webimages\pouches\p10.jpg" style="width:100%" onclick="onClick(this)"
+                            class="w3-hover-opacity" alt="10">
+                        <p>POUCH 10<br></p>
+                    </div>
+                    <div class="w3-container">
+                        <div class="w3-display-container">
+                            <img src="webimages\pouches\p14.jpg" style="width:100%" onclick="onClick(this)"
+                                class="w3-hover-opacity" alt="14">
+                            <span class="w3-tag w3-display-topleft">Old Sample</span>
+                            <div class="w3-display-middle w3-display-hover">
+                                <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
+                            </div>
+                        </div>
+                        <p>POUCH 14<br><b>$20.50</b></p>
+                    </div>
+
+                </div>
+
+                <div class="w3-col l3 s6">
+                    <div class="w3-container">
+                        <img src="webimages\pouches\p3.jpg" style="width:100%" onclick="onClick(this)"
+                            class="w3-hover-opacity" alt="3">
+                        <p>POUCH 3<br></p>
+                    </div>
+                    <div class="w3-container">
+                        <img src="webimages\pouches\p7.jpg" style="width:100%" onclick="onClick(this)"
+                            class="w3-hover-opacity" alt="7">
+                        <p>POUCH 7<br></p>
+                    </div>
+                    <div class="w3-container">
+                        <img src="webimages\pouches\p11.jpg" style="width:100%" onclick="onClick(this)"
+                            class="w3-hover-opacity" alt="11">
+                        <p>POUCH 11<br></p>
+                    </div>
+
+                </div>
+
+                <div class="w3-col l3 s6">
+                    <div class="w3-container">
+                        <img src="webimages\pouches\p4.jpg" style="width:100%" onclick="onClick(this)"
+                            class="w3-hover-opacity" alt="4">
+                        <p>POUCH 4<br></p>
+                    </div>
+                    <div class="w3-container">
+                        <img src="webimages\pouches\p8.jpg" style="width:100%" onclick="onClick(this)"
+                            class="w3-hover-opacity" alt="8">
+                        <p>POUCH 8<br></p>
+                    </div>
+                    <div class="w3-container">
+                        <img src="webimages\pouches\p12.jpg" style="width:100%" onclick="onClick(this)"
+                            class="w3-hover-opacity" alt="12">
+                        <p>POUCH 12<br></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2><b>HOW TO PURCHASE?</b></h2>
+                <h3><i class="fa fa-map-marker"></i>Visit Our Factory</h3>
+                <p>Drop by our factory to view and purchase the available stock. Our team will be happy to assist you
+                    with your order.</p>
+
+                <h3><i class="fa fa-phone"></i>Place an Order by Phone</h3>
+                <p>Can't make it to the factory? Give us a call, and our sales representatives will guide you through
+                    the process and help you place your
+                    order over the phone.</p>
+                <p>Address :<b> 240/2, Weera Mawatha, Ambaraluwa, Weliweriya</b></p>
+                <p>Phone :<b> 033 2256405 / 077 3122 339 / 077 2100 584</b></p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="w3-padding-50 w3-light-grey w3-center" id="footer">
+            <div class="w3-row-padding">
+
+                <div class="w3-center">
+                    <h4><b>Contact Us</b></h4>
+                    <h6>LANKA STOCK (PVT) LTD </h6>
+                    <p><i class="fa fa-fw fa-map-marker"></i> No: 240/2, Weera Mawatha, Ambaraluwa, Weliweriya</p>
+                    <p><i class="fa fa-fw fa-phone"></i> 033 2256405 / 077 3122 339 / 077 2100 584 </p>
+                    <p><i class="fa fa-fw fa-envelope"></i> lankastock@yahoo.com</p>
+                </div>
+            </div>
+
+            <div class="w3-white w3-center w3-padding-24">Copyright © 2023 Lanka Stock (Pvt) Ltd. All rights reserved. |
+                Designed by Yasara Samarathunga</a>
+            </div>
+
+        </footer>
+        <!-- End page content -->
+    </div>
+
+    <script>
+        // Function to show a specific category and hide others
+        function showCategory(category) {
+            // Hide all category content divs
+            var categoryContents = document.getElementsByClassName("category-content");
+            for (var i = 0; i < categoryContents.length; i++) {
+                categoryContents[i].style.display = "none";
+            }
+
+            // Show the selected category content
+            document.getElementById(category).style.display = "block";
+        }
+
+        // Open and close sidebar
+        function w3_open() {
+            document.getElementById("mySidebar").style.display = "block";
+            document.getElementById("myOverlay").style.display = "block";
+        }
+
+        function w3_close() {
+            document.getElementById("mySidebar").style.display = "none";
+            document.getElementById("myOverlay").style.display = "none";
+        }
+
+        function showSampleDropdown() {
+            var dropdown = document.getElementById("sampleDropdown");
+            if (dropdown.style.display === "block") {
+                dropdown.style.display = "none";
+            } else {
+                dropdown.style.display = "block";
+            }
+        }
+
+        function showdesignHubDropdown() {
+            var dropdown = document.getElementById("designHubDropdown");
+            if (dropdown.style.display === "block") {
+                dropdown.style.display = "none";
+            } else {
+                dropdown.style.display = "block";
+            }
+        }
+
+        function showDesignHubDropdown() {
+            var dropdown = document.getElementById("designHubDropdown");
+            if (dropdown.style.display === "block") {
+                dropdown.style.display = "none";
+            } else {
+                dropdown.style.display = "block";
+            }
+        }
+
+        // Modal Image Gallery
+        function onClick(element) {
+            document.getElementById("img01").src = element.src;
+            document.getElementById("modal01").style.display = "block";
+            var captionText = document.getElementById("caption");
+            captionText.innerHTML = element.alt;
+        }
+
+        // Get the modal
+        var modal = document.getElementById("myModal");
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("myBtn");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks on the button, open the modal
+        btn.onclick = function () {
+            modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>
